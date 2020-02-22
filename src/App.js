@@ -4,16 +4,35 @@ import youtube from "./api/youtube";
 import { SearchBar, VideoDetail, VideoList } from "./components";
 
 class App extends Component {
+  state = {
+    video: [],
+    selectedVideo: null
+  };
+  handleSubmit = async searchTerm => {
+    const response = await youtube.get("search", {
+      params: {
+        part: "snippet",
+        maxResults: 5,
+        key: "AIzaSyBC80Sl0cbQHdpFQ0yT-iT6AkhxJl9nD0g",
+        q: searchTerm
+      }
+    });
+    this.setState({
+      video: response.data.items,
+      selectedVideo: response.data.items[0]
+    });
+  };
   render() {
+    const { video, selectedVideo } = this.state;
     return (
-      <Grid justify="center" container spacing={16}>
+      <Grid justify="center" container spacing={10}>
         <Grid item xs={12}>
-          <Grid container spacing={16}>
+          <Grid container spacing={10}>
             <Grid item xs={12}>
               <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={8}>
-              <VideoDetail />
+              <VideoDetail video={selectedVideo} />
             </Grid>
             <Grid item xs={4}>
               <VideoList />

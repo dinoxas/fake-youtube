@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import VideoItem from "./VideoItem";
+import { Grid } from "@material-ui/core";
 
 const VideoList = () => {
   return (
-    <div>
-      <h2>Video List</h2>
-    </div>
+    <Fragment>
+      <Grid></Grid>
+    </Fragment>
   );
 };
 

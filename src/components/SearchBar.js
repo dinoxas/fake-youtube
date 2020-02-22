@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Paper, TextField } from "@material-ui/core";
 
 class SearchBar extends Component {
@@ -17,11 +17,17 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Paper elevation={6} style={{ padding: "20px" }}>
-        <form onSubmit={this.handleSubmit}>
-          <TextField fullWidth label="Search..." onChange={this.handleChange} />
-        </form>
-      </Paper>
+      <Fragment>
+        <Paper elevation={6} style={{ padding: "20px" }}>
+          <form onSubmit={this.handleSubmit}>
+            <TextField
+              fullWidth
+              label="Search..."
+              onChange={this.handleChange}
+            />
+          </form>
+        </Paper>
+      </Fragment>
     );
   }
 }
