@@ -6,7 +6,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
   const htmlEntities = new Html5Entities();
   return (
     <Grid>
-      <Paper elevation={6} style={{ padding: "5px", marginBottom: "10px" }}>
+      <Paper elevation={6} style={{ marginBottom: "10px" }}>
         <div
           style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           onClick={() => onVideoSelect(video)}
@@ -16,7 +16,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
             alt="thumbnail"
             src={video.snippet.thumbnails.default.url}
           />
-          <Typography variant="subtitle2">
+          <Typography variant="subtitle2" style={{ padding: "10px" }}>
             <strong>{htmlEntities.decode(video.snippet.title)}</strong>
           </Typography>
         </div>

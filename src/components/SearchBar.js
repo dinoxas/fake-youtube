@@ -18,7 +18,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Fragment>
-        <Paper elevation={6} style={{ padding: "20px" }}>
+        <Paper elevation={6} style={{ padding: "20px", marginTop: "80px" }}>
           <form onSubmit={this.handleSubmit}>
             <TextField
               fullWidth

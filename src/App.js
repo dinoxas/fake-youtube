@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import React, { Component, Fragment } from "react";
+import { Grid, Typography, Container } from "@material-ui/core";
 import youtube from "./api/youtube";
-import { FaYoutube } from "react-icons/fa";
+import { FaReact, FaYoutube } from "react-icons/fa";
 import { SearchBar, VideoDetail, VideoList } from "./components";
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.handleSubmit("Eric Cantona");
+    this.handleSubmit("Learn JavaScript");
   }
 
   onVideoSelect = video => {
@@ -24,7 +24,7 @@ class App extends Component {
     const response = await youtube.get("search", {
       params: {
         part: "snippet",
-        maxResults: 5,
+        maxResults: 10,
         key: "AIzaSyBC80Sl0cbQHdpFQ0yT-iT6AkhxJl9nD0g",
         q: searchTerm
       }
@@ -38,31 +38,57 @@ class App extends Component {
     const { videos, selectedVideo } = this.state;
 
     return (
-      <Grid justify="center" container>
-        <Grid container>
-          <Grid item xs={12}>
+      <Fragment>
+        <div
+          style={{
+            backgroundColor: "fff",
+            borderBottom: "2px solid #dee2e6",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "45px",
+            paddingTop: "10px",
+            paddingBottom: "10px",
+            width: "100%"
+          }}
+        >
+          <Container maxWidth="lg">
             <Typography
-              variant="h4"
-              style={{ marginBottom: "20px", textAlign: "center" }}
+              variant="h5"
+              style={{
+                textAlign: "center",
+                float: "left",
+                marginTop: "10px",
+                marginLeft: "10px"
+              }}
             >
-              Fake Youtube with React <FaYoutube color="#c00" size="50" />
+              Fake Youtube
             </Typography>
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <SearchBar onFormSubmit={this.handleSubmit} />
+            <div style={{ float: "right" }}>
+              <FaReact color="rgb(0, 216, 255)" size="50" />{" "}
+              <FaYoutube color="#c00" size="50" />
+            </div>
+          </Container>
+        </div>
+
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <SearchBar onFormSubmit={this.handleSubmit} />
+            </Grid>
           </Grid>
 
-          <Grid item md={8} xs={12}>
-            <VideoDetail video={selectedVideo} />
-          </Grid>
+          <Grid container spacing={3}>
+            <Grid item md={8} xs={12}>
+              <VideoDetail video={selectedVideo} />
+            </Grid>
 
-          <Grid item md={4} xs={12}>
-            <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
+            <Grid item md={4} xs={12}>
+              <VideoList videos={videos} onVideoSelect={this.onVideoSelect} />
+            </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+        </Container>
+      </Fragment>
     );
   }
 }
