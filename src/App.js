@@ -4,6 +4,8 @@ import youtube from "./api/youtube";
 import { FaReact, FaYoutube } from "react-icons/fa";
 import { SearchBar, VideoDetail, VideoList } from "./components";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 class App extends Component {
   state = {
     videos: [],
@@ -25,7 +27,7 @@ class App extends Component {
       params: {
         part: "snippet",
         maxResults: 10,
-        key: "AIzaSyBC80Sl0cbQHdpFQ0yT-iT6AkhxJl9nD0g",
+        key: API_KEY,
         q: searchTerm
       }
     });
