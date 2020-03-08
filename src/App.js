@@ -5,6 +5,7 @@ import { FaReact, FaYoutube } from "react-icons/fa";
 import { SearchBar, VideoDetail, VideoList } from "./components";
 // import Pagination from "./components/Pagination";
 import BasicPagination from "./components/BasicPagination";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -58,14 +59,14 @@ class App extends Component {
 
     return (
       <Fragment>
+        <CssBaseline />
         <div
           style={{
-            backgroundColor: "fff",
-            borderBottom: "2px solid #dee2e6",
+            backgroundColor: "#fff",
             position: "absolute",
             top: 0,
             left: 0,
-            height: "45px",
+            height: "65px",
             paddingTop: "10px",
             paddingBottom: "10px",
             width: "100%"
@@ -73,7 +74,7 @@ class App extends Component {
         >
           <Container maxWidth="lg">
             <Typography
-              variant="h5"
+              variant="h6"
               style={{
                 textAlign: "center",
                 float: "left",
@@ -81,11 +82,10 @@ class App extends Component {
                 marginLeft: "10px"
               }}
             >
-              Fake Youtube
+              <FaYoutube color="#ff0000" size="24" /> <span>FakeTube</span>
             </Typography>
             <div style={{ float: "right" }}>
               <FaReact color="rgb(0, 216, 255)" size="50" />{" "}
-              <FaYoutube color="#c00" size="50" />
             </div>
           </Container>
         </div>

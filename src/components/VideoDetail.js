@@ -39,10 +39,6 @@ const VideoDetail = ({ video }) => {
           </Typography>
         </div>
       </Paper>
-
-      {/* <Paper style={{ padding: "10px" }}>
-        
-      </Paper> */}
     </Fragment>
   );
 };

@@ -6,7 +6,7 @@ import Pagination from "@material-ui/lab/Pagination";
 const useStyles = makeStyles(theme => ({
   root: {
     "& > *": {
-      marginTop: theme.spacing(2)
+      marginTop: theme.spacing(3)
     }
   }
 }));
@@ -36,8 +36,9 @@ const BasicPagination = ({
         <Pagination
           count={pageNumbers.length}
           onChange={handleChange}
-          color="secondary"
           page={currentPage}
+          variant="outlined"
+          shape="rounded"
         ></Pagination>
       </Grid>
     </div>
